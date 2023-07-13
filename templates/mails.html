@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emails</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Emails</div>
+                    <div class="card-body">
+                        {% if email_data %}
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>Subject</th>
+                                        <th>Date</th>
+                                        <!-- Add more table headers if needed -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for email in email_data %}
+                                        <tr>
+                                            <td>{{ email['sender'] }}</td>
+                                            <td>{{ email['subject'] }}</td>
+                                            <td>{{ email['date'] }}</td>
+                                            <!-- Display more email data fields if needed -->
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        {% else %}
+                            <p>No emails found.</p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer">
+                        <a href="/logout" class="btn btn-danger">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
